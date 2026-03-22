@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import PagePrincipale from './PagePrincipale';
+import PagePresentation from './PagePresentation';
+import PageContact from './PageContact';
+import StatutSession from './StatutSession';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="entete">Mon Application React</h1>
+      <nav>
+        <Link to="/">Accueil</Link> |{" "}
+        <Link to="/presentation">Presentation</Link> |{" "}
+        <Link to="/contact">Contact</Link>
+      </nav>
+      <div className="contenu">
+        <StatutSession />
+        <Routes>
+          <Route path="/" element={<PagePrincipale />} />
+          <Route path="/presentation" element={<PagePresentation />} />
+          <Route path="/contact" element={<PageContact />} />
+        </Routes>
+      </div>
     </div>
   );
 }

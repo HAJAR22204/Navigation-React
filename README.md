@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# TP 3 : Navigation, rendu conditionnel et integration des ressources dans React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Ce TP a pour objectif de mettre en pratique la navigation entre pages
+avec React Router, le rendu conditionnel avec les operateurs ternaires
+et logiques, l'iteration sur des tableaux avec map(), ainsi que
+l'integration de styles CSS dans une application React.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Technologies utilisees
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React (via Create React App)
+- JavaScript ES6
+- JSX
+- React Router DOM
+- CSS
+- PropTypes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Structure du projet
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+src/
+├── App.js
+├── App.css
+├── index.js
+├── PagePrincipale.js
+├── PagePresentation.js
+├── PageContact.js
+├── StatutSession.js
+├── ListeActivites.js
+├── NotificationsAlerte.js
+├── ListePersonnalisee.js
+├── GaleriePhotos.js
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Composants realises
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### PagePrincipale
+Page d'accueil de l'application. Elle regroupe les composants
+ListeActivites, NotificationsAlerte, ListePersonnalisee et
+GaleriePhotos.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### PagePresentation
+Page secondaire accessible via la barre de navigation. Elle affiche
+une description de l'equipe et de la mission du projet.
 
-### `npm run eject`
+### PageContact
+Page supplementaire contenant les informations de contact. Elle est
+accessible via un lien dans la barre de navigation.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### StatutSession
+Composant de rendu conditionnel qui affiche "Session active" ou
+"Session inactive" selon un etat booleen gere par useState. Un bouton
+permet de basculer entre les deux etats.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### ListeActivites
+Composant qui affiche dynamiquement une liste d'activites en utilisant
+la methode map() sur un tableau de donnees locales.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### NotificationsAlerte
+Exercice 1 : affiche un message uniquement si le nombre de notifications
+est superieur a zero, en utilisant l'operateur logique &&. Deux boutons
+permettent d'ajouter ou d'effacer les notifications.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### ListePersonnalisee
+Exercice 2 : composant generique qui recoit un tableau en props et
+l'affiche sous forme de liste avec map(). La validation des props est
+assuree par PropTypes.
 
-## Learn More
+### GaleriePhotos
+Exercice 3 : composant qui affiche trois photos cote a cote en utilisant
+map() sur un tableau d'objets contenant des URLs d'images externes.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Methodes utilisees
 
-### Code Splitting
+**React Router DOM :** la bibliotheque react-router-dom est utilisee
+pour mettre en place une navigation de type Single Page Application.
+BrowserRouter encapsule l'application, Routes et Route definissent
+les chemins, et Link cree des liens internes sans rechargement de page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Rendu conditionnel :** deux techniques sont utilisees. L'operateur
+ternaire condition ? siVrai : siFaux dans StatutSession pour afficher
+un message selon l'etat, et l'operateur logique && dans
+NotificationsAlerte pour afficher un element uniquement si une
+condition est vraie.
 
-### Analyzing the Bundle Size
+**Iteration avec map() :** la methode JavaScript map() est utilisee
+dans ListeActivites, ListePersonnalisee et GaleriePhotos pour generer
+dynamiquement des elements JSX a partir de tableaux de donnees.
+La propriete key est definie pour chaque element afin d'optimiser
+le rendu.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Styles CSS :** un fichier App.css est importe dans App.js. Les
+classes sont appliquees avec className au lieu de class pour respecter
+la syntaxe JSX. Des styles sont egalement appliques directement via
+l'attribut style dans certains composants.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Resultats obtenus
 
-### Advanced Configuration
+- Acceuil
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![alt text](image.png)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Presentation
 
-### `npm run build` fails to minify
+![alt text](image-1.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+- Contact
+
+![alt text](image-2.png)
+---
+
+## Lancer le projet
+
+npm install
+npm start
+
+L'application sera accessible a l'adresse : http://localhost:3000
