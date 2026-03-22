@@ -23,16 +23,27 @@ l'integration de styles CSS dans une application React.
 ## Structure du projet
 
 src/
+
 ├── App.js
+
 ├── App.css
+
 ├── index.js
+
 ├── PagePrincipale.js
+
 ├── PagePresentation.js
+
 ├── PageContact.js
+
 ├── StatutSession.js
+
 ├── ListeActivites.js
+
 ├── NotificationsAlerte.js
+
 ├── ListePersonnalisee.js
+
 ├── GaleriePhotos.js
 
 ---
