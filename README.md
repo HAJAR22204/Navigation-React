@@ -131,9 +131,3 @@ l'attribut style dans certains composants.
 ![alt text](image-2.png)
 ---
 
-## Lancer le projet
-
-npm install
-npm start
-
-L'application sera accessible a l'adresse : http://localhost:3000
